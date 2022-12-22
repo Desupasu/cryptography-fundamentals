@@ -3,8 +3,9 @@
 const { verify_prime } = require("./2_prime");
 const prime_sequence = require("./3_prime_sequence");
 
+// Символ Якоби для нечетного модуля
 const jacobi = (a, n) => {
-    if (n > 0 && n % 2 === 0) return;
+    if (n > 0 && n % 2 === 0) return NaN;
 
     a = a % n;
     let t = 1;
@@ -38,8 +39,10 @@ const jacobi = (a, n) => {
         return 0;
     }
 }
-
+// Символ Лежандра для простых модулей > 2
 const legendre = (a, p) => {
+    if (!verify_prime(p) || p < 3) return NaN;
+
     if ((a >= p) || (a < 0)) return legendre(a % p, p);
 
     if (a === 0 || a === 1) return a;

@@ -47,6 +47,8 @@ const curve = (a = 5, b = 8, p = 13) => {
     const P12 =  calculateDouble(P6, a, p); // O
     const N1 = dots.length;
     const ordP = 12;
+    const dzetaA = p + 1 - N1;
+    const alphaBeta = `(${dzetaA} +- sqrt(${dzetaA}^2 - 4*${p})) / 2`
     const alpha = '1 - sqrt(48i)/2';
     const beta = '1 + sqrt(48i)/2';
     const N = `13^r + 1 - (${alpha})^r - (${beta})^r`
@@ -55,6 +57,7 @@ const curve = (a = 5, b = 8, p = 13) => {
         equation: `y^2 = x^3 + ${a}x + ${b}`,
         dots: dots,
         P: P,
+        alphaBeta,
         trace: [P, P2, P4, P6, P12],
         ordP: ordP,
         ordN: N1,

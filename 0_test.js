@@ -67,8 +67,8 @@ const test7 = () => {
 }
 
 const test8 = () => {
-    const a = 3, b = 4, mod = 6;
-    const a2 = 3, b2 = 4, mod2 = 17;
+    const a = 3, b = 4290370212341234123412348n, mod = 6;
+    const mod2 = 17;
     const result = power_mod(a, b, mod);
     const result2 = power_mod(a, b, mod2);
     console.log(`${a}^${b} (mod ${mod}) = ${result}`);
@@ -142,6 +142,7 @@ const test15 = () => {
     const prettyResultPlus = result.tables[0].map(n => `${n.map(m => m.toString().padEnd(2, ' ').padStart(4, ' ')).join(' | ')}`);
     const prettyResultMul = result.tables[1].map(n => `${n.map(m => m.toString().padEnd(4, ' ').padStart(8, ' ')).join(' | ')}`);
 
+    console.log('GF3 = { -1, 0, 1 }; p = 3')
     console.log(`f(x): ${f}`);
     console.log(`F[x]/f[x] = { ${result.field.join(', ')} } `);
     console.log('\nТаблица Кэли для сложения\n');
@@ -155,11 +156,13 @@ const test16 = () => {
     const b = 8;
     const p = 13;
     const result = curve(a, b, p);
+    console.log('a = 5; b = 8; p = 13');
     console.log(`Уравнение ЭК: ${result.equation}`);
     console.log('Точки ЭК: { ' + result.dots.map(n => `(${n})`).join(' ; ') + ' }');
     console.log(`Нахождение порядка точки: P (${result.trace[0]}) --> 2P (${result.trace[1]}) --> 4P (${result.trace[2]}) --> 6P (${result.trace[3]}) --> 12P (${result.trace[4]})`)
     console.log(`Порядок ЭК: ${result.ordN}`);
     console.log(`Порядок P (${result.P}) = ${result.ordP}`);
+    console.log(`Дискриминант ${result.alphaBeta}`)
     console.log(`Порядок ЭК Над полем F(p^r) = ${result.N}`);
 }
 

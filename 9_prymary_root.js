@@ -62,7 +62,7 @@ const deduction_system = (n) => {
            result.push(power_mod(root, i, n));
        }
 
-       return result.sort((a,b) => a - b);
+       return result //.sort((a,b) => a - b);
     }
 
     // Если модуль вида 2^a, где a > 2
@@ -76,7 +76,7 @@ const deduction_system = (n) => {
             result.push(((-1) * power_mod(5, i, n) + n) % n)
         }
     
-        return result.sort((a,b) => a - b);
+        return result //.sort((a,b) => a - b);
     }
 
     return NaN;
