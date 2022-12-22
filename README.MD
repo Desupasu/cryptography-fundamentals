@@ -1,0 +1,1 @@
+# Master's project on solving some crypto tasks
